@@ -1,0 +1,21 @@
+# Digite no terminal para saber se o git esta instalado:
+git --version
+----------------------------------------------------
+# 2. Inicialize Git
+git init
+----------------------------------------------------
+# Poderia ser meu name no GitHub, mas nessa conta está em branco. então vou usar o username
+# Nome APENAS para este projeto
+git config user.name "rensbrasolin"
+
+# Email APENAS para este projeto  
+git config user.email "renatobrasolin@gmail.com"
+---------------------------------------------------
+# Crie o arquivo .gitignore.
+# E depois inserir o conteudo manualmente nele
+code .gitignore
+---------------------------------------------------
+git status
+--------------------------------------------------
+# Adicionar os arquivos ao stage
+git add .

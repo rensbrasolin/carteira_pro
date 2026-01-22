@@ -1,0 +1,28 @@
+Fazer login no GitHub e fazer o deploy do projeto::
+
+----------CRIAR REPOSITORIO
+new
+nome - streamlitpython
+privado ou publico
+add readme ou não
+gitignore - python
+escolher licença - escolheu MIT license - padrão
+clicar em criar repositório
+
+---------- ENVIAR ARQUIVOS PARA SERVIDOR (GITHUB)
+Não esquecer de recriar o REQUIREMENTS.TXT a cada biblioteca instalada:
+pip freeze > requirements.txt
+
+Add file - adicionar os arquivos do projeto, dá pra arrastar direto da IDE. Pelo que vi a pasta "venv" não percisa.
+dar nome a nova versão e comentar atualizações. (opcional)
+
+------------ CRIAR UM APP NO STREAMLIT
+ir no streamlit e logar com GitHub pra já vincular
+
+-criar/publicar o app no streamlit
+clicar em new app
+pode preencher com o link do repositório do GitHub ou escolher na lista, já que esta vinculado.
+brant: acho que é a pasta principal, normalmente 'main'.
+main file path: arquivo .py principal do projeto, normalmente o main.py. é o arquivo que escreve no terminal para rodar (streamlit run arquivo.py)
+
+em configurações avançadas enquanto o app é simples não precisa fazer nada, mas pelo que entendi serve para preencher códigos, senhas, tokens e dados sensíveis do app.

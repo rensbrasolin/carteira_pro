@@ -1,0 +1,22 @@
+Tipos de movimentação pegas do vídeo do Léo em que ele mostrou seu extrato:
+
+COMPRA - RF
+APLICAÇÃO - Possível RF
+Compra/Venda - Não sei
+
+Renda Variável:
+Dividendo - Transferido
+Juros Sobre Capital Próprio - Transferido
+Leilão de Fração
+Fração em Ativos
+
+Aluguel de Ativos:
+Empréstimos - Ativos emprestados
+Reembolso - Recebimentos pelo aluguel
+
+
+------------------------------------------------------------------------------
+Extratos da B3:
+Extrato de movimentação tem delay de 2 dias úteis. Pois considera data de liquidação e não de operação.
+Extrato de posição também. Conferi quando comprei vale3 dia 29/03 e só apareceu em 02/05.
+Extrato de negociação tem data correta, mas só compras e vendas.

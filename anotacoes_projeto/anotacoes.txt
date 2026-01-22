@@ -1,0 +1,61 @@
+- Fazer deploy.
+    - Tentar fazer tudo pelo terminal. O passo a passo ja esta na saída do deepseek.
+    - Anotar no arquivo 'deploy_github'
+
+
+Antes de diponibilizar para o público, colocar disclaimers.
+    # Tipos de movimentação
+    # Não considera taxas (ver no projeto antigo)
+
+`use_container_width` will be removed after 2025-12-31.
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+
+
+----------------------------------------------------------------------------------------------------------------------
+# Imagem no df c/ st.dataframe:
+# Se tiver um df com as urls das imagens, usar st.data_editor transforma as urls em img e já exibe o df.
+
+import pandas as pd
+import streamlit as st
+
+data_df = pd.DataFrame(
+    {
+        "col1": [1,2,3,4],
+        "apps2": [
+            "https://s3-symbol-logo.tradingview.com/vale--big.svg",
+            "https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg",
+            "https://s3-symbol-logo.tradingview.com/banco-do-brasil--big.svg",
+            "https://s3-symbol-logo.tradingview.com/hashdex--big.svg",
+        ],
+    }
+)
+
+
+data_df
+
+
+st.data_editor(
+    data_df,
+    column_config={
+        "apps2": st.column_config.ImageColumn(
+            "Preview Image", help="Streamlit app preview screenshots"
+        )
+    },
+    hide_index=True,
+)
+----------------------------------------------------------------------------------------------------------------------
+- Melhorar front end das tabelas
+| Solução                                | Suporta MultiIndex | Personalização | Interativo? |
+| -------------------------------------- | ------------------ | -------------- | ----------- |
+| `.style().to_html()` + `st.markdown()` | ✅ Sim             | ✅ Alta        | ❌ Não       |
+| `st.data_editor()`                     | ⚠ Parcialmente     | ⚠ Média         | ✅ Sim       |
+| `AgGrid`                               | ❌ Não             | ✅ Alta        | ✅ Sim       |
+| `plotly.figure_factory`                | ⚠ Com reset\_index | ⚠ Baixa        | ❌ Não       |
+| `dataframe_image` (`dfi`)              | ✅ Sim             | ✅ Alta        | ❌ Não       |
+
+----------------------------------------------------------------------------------------------------------------------
+OUTROS:
+
+- Gráfico painel cotação/pm
+- Botão no ticker do df para abrir análise inv10 ou qualquer outro
+- Trazer informações de fora: Segmento, P/VP, etc. Obrigatoriamente separado por tipo de ativo
