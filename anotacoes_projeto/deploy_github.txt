@@ -19,3 +19,9 @@ git status
 --------------------------------------------------
 # Adicionar os arquivos ao stage
 git add .
+-------------------------------------------------
+# Fazer o commit (agora sim)
+git commit -m "Initial commit: projeto CarteiraPro com estrutura básica"
+-------------------------------------------------
+# Agora precisamos conectar seu repositório local ao GitHub. Digite:
+git remote add origin https://github.com/rensbrasolin/carteira_pro.git
