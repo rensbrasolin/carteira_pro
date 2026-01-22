@@ -1,3 +1,10 @@
+SEMPRE E ATENTAR A BRANCH (MAIN OU MASTER)
+TAMBÉM SE ATENTAR A CONTA CORRETA DO GITHUB, POIS TENHO 2.
+IDEAL TAMBÉM É QUE OS 2 REPOSITORIOS (LOCAL/GITHUB) ESTEJAM EM SINCRONIA.
+TIVE QUE DAR MERGE NELES PARA FUNCIONAR.
+
+
+
 # Digite no terminal para saber se o git esta instalado:
 git --version
 ----------------------------------------------------
@@ -25,3 +32,20 @@ git commit -m "Initial commit: projeto CarteiraPro com estrutura básica"
 -------------------------------------------------
 # Agora precisamos conectar seu repositório local ao GitHub. Digite:
 git remote add origin https://github.com/rensbrasolin/carteira_pro.git
+---------------------------------------------------
+# Verificar a conexão
+git remote -v
+---------------------------------------------------
+# verifica o branch (master/main)
+# tentar manter tudo main (local e github)
+git branch
+--------------------------------------------------
+# Se necessário, Renomear a branch local
+git branch -m master main
+--------------------------------------------------
+git push -u origin main
+--------------------------------------------------
+# Para fazer novos commits (após modificar arquivos)
+git add .
+git commit -m "Descrição das mudanças"
+git push
