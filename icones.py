@@ -26,39 +26,39 @@ ICONE_CARREGAMENTO_EXTRATO = '📂'
 
 # _______________________________________________ Abas principais
 # 1. Extrato
-TITULO_EXTRATO = '1. Extrato'
+TITULO_EXTRATO = 'Extrato'
 ICONE_EXTRATO = '📋'
 # 2. Posição
-TITULO_POSICAO = '2. Posição'
+TITULO_POSICAO = 'Posição'
 ICONE_POSICAO = '⚖️'
 # 3. Remunerações
-TITULO_REMUNERACOES = '3. Remunerações'
+TITULO_REMUNERACOES = 'Remunerações'
 ICONE_REMUNERACOES = '🪙'
 
 # _______________________________________________ Sub-abas (1. Extrato não tem)
-TITULO_VISAO_GERAL = '2a. Visão geral'
+TITULO_VISAO_GERAL = 'Visão geral'
 ICONE_VISAO_GERAL = '📡'
 
-TITULO_ACOES = '2b. Ações'
+TITULO_ACOES = 'Ações'
 ICONE_ACOES = '🏭'
 
-TITULO_FIIS = '2c. FIIs'
+TITULO_FIIS = 'FIIs'
 ICONE_FIIS = '🏢'
 
-TITULO_ETFS = '2d. ETFs'
+TITULO_ETFS = 'ETFs'
 ICONE_ETFS = '🌐'
 
 # _______________________________________________ Expanders das abas e sub-abas
-TITULO_FILTROS = '**[Filtros]** --- '
+TITULO_FILTROS = '**[Filtros]** ... '
 ICONE_FILTROS = '⚡'
 
-TITULO_INDICADORES = '**[Indicadores]** --- '
+TITULO_INDICADORES = '**[Indicadores]** ... '
 ICONE_INDICADORES = '🌡️'
 
-TITULO_DADOS = '**[Dados]** --- '
+TITULO_DADOS = '**[Dados]** ... '
 ICONE_DADOS = '📄' # 🧾
 
-TITULO_GRAFICOS = '**[Gráficos]** --- '
+TITULO_GRAFICOS = '**[Gráficos]** ... '
 ICONE_GRAFICOS = '📊' # 🧮
 
 # _______________________________________________ Indicadores

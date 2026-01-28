@@ -70,15 +70,15 @@ def _criar_grafico_cm_pa_rem_df_posicao_acoes(df_posicao_acoes):
             'tickprefix': 'R$ ',
             'tickformat': ',.0f',  # separador de milhar e duas casas decimais
             'separatethousands': True,
-            "tickfont": {  # Cor dos valores do eixo Y
-                "color": "#adb5bd"
-            }
+            # "tickfont": {  # Cor dos valores do eixo Y
+            #     "color": "#adb5bd"
+            # }
         },
         xaxis={  # Eixo X (ativos)
-            "tickfont": {  # Cor dos rótulos no eixo X
-                "color": "#adb5bd",
-                "size": 11,
-            },
+            # "tickfont": {  # Cor dos rótulos no eixo X
+            #     "color": "#adb5bd",
+            #     "size": 11,
+            # },
             "tickangle": 0 # <- ROTACAO DO LABEL DO EIXO X (ajuste aqui: positivo ou negativo em graus)
         },
 
@@ -88,11 +88,11 @@ def _criar_grafico_cm_pa_rem_df_posicao_acoes(df_posicao_acoes):
             "y": 0.97,
             "xanchor": 'center',
             "yanchor": 'top',
-            "font": {  # Cor e estilo do título
-                "color": "#adb5bd",
-                "size": 16,
-                "family": "Segoe UI"
-            }
+            # "font": {  # Cor e estilo do título
+            #     "color": "#adb5bd",
+            #     "size": 16,
+            #     "family": "Segoe UI"
+            # }
         },
         xaxis_title='',  # Remove o título do eixo X
         yaxis_title='',  # Remove o título do eixo Y
@@ -101,14 +101,14 @@ def _criar_grafico_cm_pa_rem_df_posicao_acoes(df_posicao_acoes):
         legend={  # Estilo da legenda
             "orientation": "h",
             "yanchor": "bottom",
-            "y": 0.93,
+            "y": -0.2,
             "xanchor": "center",
             "x": 0.5,
-            "font": {
-                "color": "#adb5bd",  # Cor da legenda
-                "size": 12,
-                "family": "Segoe UI"
-            }
+            # "font": {
+            #     "color": "#adb5bd",  # Cor da legenda
+            #     "size": 12,
+            #     "family": "Segoe UI"
+            # }
         }
     )
 
@@ -129,17 +129,17 @@ def _criar_grafico_cm_pa_rem_df_posicao_acoes(df_posicao_acoes):
         x=0.60,
         y=1.09,
         showarrow=False,
-        font={"size": 14, "color": "#f6fff8"},  # Cor do ícone/emoji
+        # font={"size": 14, "color": "#f6fff8"},  # Cor do ícone/emoji
         align="center",
         hovertext=hover_msg,
         hoverlabel={  # Estilo do tooltip (ajuda)
             "bgcolor": "#333",  # Cor de fundo do tooltip
             "bordercolor": "#555",  # Cor da borda
-            "font": {
-                "family": "Segoe UI",
-                "size": 13,
-                "color": "#ffffff"
-            }
+            # "font": {
+            #     "family": "Segoe UI",
+            #     "size": 13,
+            #     "color": "#ffffff"
+            # }
         }
     )
 
@@ -206,14 +206,14 @@ def _criar_grafico_cm_pa_rem_total_df_posicao_acoes(
             "gridwidth": 1,
             "zeroline": False,
             "tickfont": {
-                "color": "#adb5bd"
+                # "color": "#adb5bd"
             }
         },
         xaxis={
-            "tickfont": {
-                "color": "#adb5bd",
-                "size": 11
-            },
+            # "tickfont": {
+            #     "color": "#adb5bd",
+            #     "size": 11
+            # },
             "tickangle": 0
         },
         title={
@@ -222,11 +222,11 @@ def _criar_grafico_cm_pa_rem_total_df_posicao_acoes(
             "y": 0.97,
             "xanchor": 'center',
             "yanchor": 'top',
-            "font": {
-                "color": "#adb5bd",
-                "size": 14,
-                "family": "Segoe UI"
-            }
+            # "font": {
+            #     "color": "#adb5bd",
+            #     "size": 14,
+            #     "family": "Segoe UI"
+            # }
         },
         xaxis_title='',
         yaxis_title='',
@@ -236,11 +236,11 @@ def _criar_grafico_cm_pa_rem_total_df_posicao_acoes(
             "y": -0.1,
             "xanchor": "center",
             "x": 0.5,
-            "font": {
-                "color": "#adb5bd",
-                "size": 12,
-                "family": "Segoe UI"
-            }
+            # "font": {
+            #     "color": "#adb5bd",
+            #     "size": 12,
+            #     "family": "Segoe UI"
+            # }
         }
     )
 
@@ -273,18 +273,18 @@ def _criar_grafico_distrib_cm_setor_df_posicao_acoes(df_posicao_acoes):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family': 'Segoe UI',
-            'color': '#adb5bd',
-            'size': 12
-        }
+        # font={
+        #     'family': 'Segoe UI',
+        #     'color': '#adb5bd',
+        #     'size': 12
+        # }
     )
 
     # Exibir valores em formato brasileiro no hover
@@ -331,18 +331,18 @@ def _criar_grafico_distrib_pa_setor_df_posicao_acoes(df_posicao_acoes):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family':'Segoe UI',
-            'color':'#adb5bd',
-            'size':12
-    }
+        # font={
+        #     'family':'Segoe UI',
+        #     'color':'#adb5bd',
+        #     'size':12
+        # }
     )
 
     # Exibir valores em formato brasileiro no hover
@@ -398,18 +398,18 @@ def _criar_grafico_distrib_cm_controleac_df_posicao_acoes(df_posicao_acoes):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family': 'Segoe UI',
-            'color': '#adb5bd',
-            'size': 12
-        }
+        # font={
+        #     'family': 'Segoe UI',
+        #     'color': '#adb5bd',
+        #     'size': 12
+        # }
     )
 
     # Exibir valores em formato brasileiro no hover
@@ -466,18 +466,18 @@ def _criar_grafico_distrib_pa_controleac_df_posicao_acoes(df_posicao_acoes):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family':'Segoe UI',
-            'color':'#adb5bd',
-            'size':12
-    }
+        # font={
+        #     'family':'Segoe UI',
+        #     'color':'#adb5bd',
+        #     'size':12
+        # }
     )
 
     # Exibir valores em formato brasileiro no hover

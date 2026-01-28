@@ -7,9 +7,9 @@ from funcoes.b_analise_carteira.ba_extrato_movimentacoes.bab_fx_exib_df_ext_mov 
 from funcoes.b_analise_carteira.ba_extrato_movimentacoes.bac_fx_graficos_df_ext_mov import (
     criar_grafico_compras_vendas_12m_df_ext_mov, criar_grafico_preco_compras_df_ext_mov
 )
-# 2a. Posição
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbaa_fx_cria_df_posicao import criar_df_posicao
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbad_fx_render_aba2a_posicao_vg import render_aba2a_posicao_vg
+# 2a. Posição VG
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbaa_fx_cria_df_posicao_vg import criar_df_posicao
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbad_fx_render_aba2a_posicao_vg import render_aba2a_posicao_vg
 # 2b. Posição Ações
 from funcoes.b_analise_carteira.bb_posicao.bbb_posicao_acoes.bbba_fx_cria_df_posicao_acoes import criar_df_posicao_acoes
 from funcoes.b_analise_carteira.bb_posicao.bbb_posicao_acoes.bbbd_fx_render_aba2b_posicao_acoes import render_aba2b_posicao_acoes
@@ -19,9 +19,16 @@ from funcoes.b_analise_carteira.bb_posicao.bbc_posicao_fiis.bbcd_fx_render_aba2c
 # 2d. Posição ETFs
 from funcoes.b_analise_carteira.bb_posicao.bbd_posicao_etfs.bbda_fx_cria_df_posicao_etfs import criar_df_posicao_etfs
 from funcoes.b_analise_carteira.bb_posicao.bbd_posicao_etfs.bbdd_fx_render_aba2d_posicao_etfs import render_aba2d_posicao_etfs
+# 3a. Remunerações VG
+from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcaa_fx_cria_df_rem_mensais_vg import (
+    criar_df_ext_pm_apos_compra, criar_df_ext_remuneracoes, criar_df_rem_mensais
+)
+from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcad_fx_render_aba3a_rem_mensais_vg import render_aba3a_remuneracoes_vg
 
 
-st.header(f'{ICONE_ANALISE_CARTEIRA} {TITULO_ANALISE_CARTEIRA}', text_alignment='center')
+
+
+st.header(f'{ICONE_ANALISE_CARTEIRA} {TITULO_ANALISE_CARTEIRA}', text_alignment='left')
 st.markdown("---")
 # ------------------------------------------------------------------------------------------------------------ Obtendo dados
 # col1, col2 = st.columns([1, 1])
@@ -82,16 +89,16 @@ if arquivos:
             # ------------------------------------------------------------------------------------------------------------ Criando df_posicao
             # Crio o df direto aqui na pag e não dentro da fx render pq ele precisa ser entregue para as próximas abas
             # A regra da fx render é: Se criar variáveis dentro dela, usá-las la dentro. Pois ela não deve retornar nada
-            df_posicao = criar_df_posicao(df_ext_mov=df_ext_mov)
+            df_ext_pm_apos_compra = criar_df_posicao(df_ext_mov=df_ext_mov)
 
             # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao e gráficos
             # A regra da fx render é: Se criar variáveis dentro dela, usá-las la dentro. Pois ela não deve retornar nada
-            render_aba2a_posicao_vg(df_ext_mov=df_ext_mov, df_posicao=df_posicao)
+            render_aba2a_posicao_vg(df_ext_mov=df_ext_mov, df_posicao=df_ext_pm_apos_compra)
 
 
         with aba2b_posicao_acoes:
             # ------------------------------------------------------------------------------------------------------------ Criando df_posicao_acoes
-            df_posicao_acoes = criar_df_posicao_acoes(df_posicao=df_posicao)
+            df_posicao_acoes = criar_df_posicao_acoes(df_posicao=df_ext_pm_apos_compra)
             
             # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_acoes e gráficos
             render_aba2b_posicao_acoes(df_ext_mov=df_ext_mov, df_posicao_acoes=df_posicao_acoes)
@@ -99,7 +106,7 @@ if arquivos:
 
         with aba2c_posicao_fiis:
             # ------------------------------------------------------------------------------------------------------------ Criando df_posicao_fiis
-            df_posicao_fiis = criar_df_posicao_fiis(df_posicao=df_posicao)
+            df_posicao_fiis = criar_df_posicao_fiis(df_posicao=df_ext_pm_apos_compra)
 
             # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_fiis e gráficos
             render_aba2c_posicao_fiis(df_ext_mov=df_ext_mov, df_posicao_fiis=df_posicao_fiis)
@@ -107,8 +114,40 @@ if arquivos:
 
         with aba2d_posicao_etfs:
             # ------------------------------------------------------------------------------------------------------------ Criando df_posicao_fiis
-            df_posicao_etfs = criar_df_posicao_etfs(df_posicao=df_posicao)
+            df_posicao_etfs = criar_df_posicao_etfs(df_posicao=df_ext_pm_apos_compra)
 
             # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_fiis e gráficos
             render_aba2d_posicao_etfs(df_ext_mov=df_ext_mov, df_posicao_etfs=df_posicao_etfs)
 
+
+
+
+
+
+
+
+
+
+
+    # ******************************************************************************************************************************************** aba_remuneracoes
+    with aba3_remuneracoes:
+        st.subheader(f'{ICONE_REMUNERACOES} {TITULO_REMUNERACOES}', text_alignment='center')
+        st.caption(f'*{ICONE_ANALISE_CARTEIRA} {TITULO_ANALISE_CARTEIRA} > {ICONE_REMUNERACOES} {TITULO_REMUNERACOES}*', text_alignment='center')
+
+        aba3a_remuneracoes_vg, aba3b_remuneracoes_acoes, aba3c_remuneracoes_fiis, aba3d_remuneracoes_etfs = st.tabs([
+            f"{ICONE_VISAO_GERAL} {TITULO_VISAO_GERAL}",
+            f"{ICONE_ACOES} {TITULO_ACOES}",
+            f"{ICONE_FIIS} {TITULO_FIIS}",
+            f"{ICONE_ETFS} {TITULO_ETFS}"
+            ])
+
+
+        with aba3a_remuneracoes_vg:
+            # ------------------------------------------------------------------------------------------------ 1. Criando dfs para se chegar no df final
+            df_ext_pm_apos_compra = criar_df_ext_pm_apos_compra(df_ext_mov=df_ext_mov)
+            df_ext_remuneracoes = criar_df_ext_remuneracoes(df_ext_mov=df_ext_mov, df_ext_pm_apos_compra=df_ext_pm_apos_compra)
+            df_rem_mensais = criar_df_rem_mensais(df_ext_remuneracoes=df_ext_remuneracoes)
+
+            # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_fiis e gráficos
+            # Também entrega o df_ext_remuneracoes para poder criar o df_rem_mensais_yonc_carteira que será entregue a fx de grafico
+            render_aba3a_remuneracoes_vg(df_ext_remuneracoes=df_ext_remuneracoes, df_rem_mensais=df_rem_mensais)

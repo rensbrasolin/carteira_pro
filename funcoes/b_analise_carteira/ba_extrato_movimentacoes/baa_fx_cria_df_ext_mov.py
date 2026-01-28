@@ -52,6 +52,14 @@ def _criar_col_tipo_ativo(df_ext_mov):
     Classifica Ações, FIIs, FIAgros e FIInfras conforme aba da base manual.
     Se não achar na base, clasifica com N/A.
     Reclassifica ETFs pelos termos de sua denominação.
+
+    Uso da categoria 'Tipo de Ativo' para FIAgros e FInfras no app:
+        - Em 1. Extrato, 2a. Visão geral (Posição) e 3a. Visão geral (Remunerações):
+            Aparecerão normalmente como FIAgros e FInfras.
+        - Em 2c. FIIs (Posição) e 3c. FIIs (Remunerações):
+            Serão incorparados aos FIIs.
+        - Lá em 2c. FIIs (Posição) até há gráficos que mostram FIAgros e FIInfras,
+            Mas são categorias oriundas da segmentação, e não da col 'Tipo de Ativo'.
     """
     
     # Carregar DataFrames

@@ -1,25 +1,9 @@
 import streamlit as st
 
-from icones import (
-    # Cabeçário
-    TITULO_ANALISE_CARTEIRA, ICONE_ANALISE_CARTEIRA,
-    # Abas principais
-    TITULO_POSICAO, ICONE_POSICAO,
-    # Sub-abas (1. Extrato não tem)
-    TITULO_VISAO_GERAL, ICONE_VISAO_GERAL,
-    # Expanders das abas e sub-abas
-    TITULO_INDICADORES, ICONE_INDICADORES, TITULO_GRAFICOS, ICONE_GRAFICOS,
-    # Indicadores Posição
-    TITULO_INDICADOR_QTD_ATIVOS, ICONE_INDICADOR_QTD_ATIVOS, 
-    TITULO_INDICADOR_QTD_TIPOS_ATIVOS_VG, ICONE_INDICADOR_QTD_TIPOS_ATIVOS_VG,
-    TITULO_INDICADOR_CM, ICONE_INDICADOR_CM, TITULO_INDICADOR_PA, ICONE_INDICADOR_PA,
-    TITULO_INDICADOR_VAR_PERCENTUAL, ICONE_INDICADOR_VAR_PERCENTUAL, TITULO_INDICADOR_VAR_ABSOLUTA, ICONE_INDICADOR_VAR_ABSOLUTA,
-    TITULO_INDICADOR_REMUNERACOES, ICONE_INDICADOR_REMUNERACOES, TITULO_INDICADOR_RES_VENAS, ICONE_INDICADOR_RES_VENDAS,
-    TITULO_INDICADOR_PERF_ABSOLUTA, ICONE_INDICADOR_PERF_ABSOLUTA, TITULO_INDICADOR_TIR, ICONE_INDICADOR_TIR
-)
+from icones import *
 from funcoes._global.fxg_tratamento import g_formatar_valor_grande_indicadores
 # 2. Posição
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbab_fx_exib_df_posicao import (
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbab_fx_exib_df_posicao_vg import (
     _calc_indicador_qtd_ativos_df_posicao, _calc_indicador_qtd_tipos_ativos_df_posicao,
     _calc_indicador_custo_medio_df_posicao, _calc_indicador_patrimonio_atual_df_posicao,
     _calc_indicador_variacao_percentual_df_posicao, _calc_indicador_variacao_absoluta_df_posicao,
@@ -27,7 +11,7 @@ from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbab_fx_exib_df_posicao i
     _calc_indicador_performance_absoluta_df_posicao, _calc_indicador_tir_df_posicao,
     _exibir_df_posicao
 )
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbac_fx_graficos_df_posicao import (
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbac_fx_graficos_df_posicao_vg import (
     _criar_grafico_distrib_cm_tipo_df_posicao, _criar_grafico_distrib_pa_tipo_df_posicao,
     _criar_grafico_rank_variacao_df_posicao, _criar_grafico_rank_tir_df_posicao
 )
@@ -46,7 +30,8 @@ def render_aba2a_posicao_vg(df_ext_mov, df_posicao):
 
     # ------------------------------------------------------------------------------------------------------------- Exibindo indicadores do df_posicao
     with st.expander(f'{TITULO_INDICADORES} *{TITULO_POSICAO} > {TITULO_VISAO_GERAL}*',
-                        expanded=False, icon=f'{ICONE_INDICADORES}'):
+                     expanded=False, icon=f'{ICONE_INDICADORES}'):
+        
         col1, col2, col3, col4, col5 = st.columns([0.75, 1, 1, 1, 1])
         with col1:
             indicador_qtd_ativos_df_posicao =_calc_indicador_qtd_ativos_df_posicao(df_posicao=df_posicao)

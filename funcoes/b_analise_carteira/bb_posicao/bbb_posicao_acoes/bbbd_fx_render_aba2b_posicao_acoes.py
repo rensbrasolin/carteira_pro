@@ -4,14 +4,14 @@ from icones import *
 
 from funcoes._global.fxg_tratamento import g_formatar_valor_grande_indicadores
 # 2. Posição
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbab_fx_exib_df_posicao import (
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbab_fx_exib_df_posicao_vg import (
     _calc_indicador_qtd_ativos_df_posicao,
     _calc_indicador_custo_medio_df_posicao, _calc_indicador_patrimonio_atual_df_posicao,
     _calc_indicador_variacao_percentual_df_posicao, _calc_indicador_variacao_absoluta_df_posicao,
     _calc_indicador_remuneracoes_df_posicao, _calc_indicador_res_vendas_df_posicao,
     _calc_indicador_performance_absoluta_df_posicao, _calc_indicador_tir_df_posicao,
 )
-from funcoes.b_analise_carteira.bb_posicao.bba_posicao.bbac_fx_graficos_df_posicao import (
+from funcoes.b_analise_carteira.bb_posicao.bba_posicao_vg.bbac_fx_graficos_df_posicao_vg import (
     # criar_grafico_distrib_cm_tipo_df_posicao, criar_grafico_distrib_pa_tipo_df_posicao,
     _criar_grafico_rank_variacao_df_posicao, _criar_grafico_rank_tir_df_posicao
 )

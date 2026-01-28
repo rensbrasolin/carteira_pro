@@ -9,6 +9,7 @@ def _iniciar_df_posicao_fiis(df_posicao):
     df_posicao_fiis = df_posicao.copy()
 
     # Mantendo apenas linhas dos 3 tipos.
+    # Explicação na fx primária que cria a col 'Tipo de Ativo' no df_ext_mov.
     df_posicao_fiis = df_posicao_fiis.loc[
         df_posicao_fiis['Tipo'].isin(['FII', 'FIAgro', 'FIInfra'])
         ]

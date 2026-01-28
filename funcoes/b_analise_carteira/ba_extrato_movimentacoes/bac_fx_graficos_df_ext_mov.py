@@ -53,7 +53,7 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
                 visible=visible,               # 🔥 Esta é a chave!
                 # Configurações visuais da linha
                 line=dict(width=2),            # Espessura da linha
-                marker=dict(size=8),           # Tamanho dos marcadores
+                marker=dict(size=5),           # Tamanho dos marcadores
                 # 🔥 E ADICIONE ESTE PARÂMETRO:
                 customdata=df_ticker[['Quantidade', 'Valor da Operação']].values
             )
@@ -69,11 +69,11 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }                                # Tamanho da fonte
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }                                # Tamanho da fonte
         },
         # xaxis_title="📅 Data",                                  # Título do eixo X
         # yaxis_title="💰 Preço Unitário (R$)",                  # Título do eixo Y
@@ -88,7 +88,7 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
             x=0.99                                              # Posição horizontal
         ),
         # Configurar margens
-        margin=dict(l=50, r=50, t=80, b=50),                   # Margens: left, right, top, bottom
+        margin={"l": 40, "r": 40, "t": 40, "b": 40},            # Margens: left, right, top, bottom
         # Configurar grid
         # plot_bgcolor='rgba(240, 240, 240, 0.8)',               # Cor de fundo do gráfico
         # Configurar eixo X (datas)
@@ -219,7 +219,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
     fig.add_trace(go.Bar(
         x=meses_formatados,  # Agora no eixo X (meses)
         y=valores_compras,   # Agora no eixo Y (valores)
-        name='🟢 Compras',
+        name='Compras',
         # Removido orientation='h' para barras verticais (padrão)
         marker_color='#2ecc71',  # Verde
         hovertemplate='<b>Compras</b><br>' +
@@ -234,7 +234,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
     fig.add_trace(go.Bar(
         x=meses_formatados,  # Agora no eixo X (meses)
         y=valores_vendas,    # Agora no eixo Y (valores)
-        name='🔴 Vendas',
+        name='Vendas',
         # Removido orientation='h' para barras verticais (padrão)
         marker_color='#e74c3c',  # Vermelho
         hovertemplate='<b>Vendas</b><br>' +
@@ -258,11 +258,11 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
         # xaxis_title='📅 Mês',
         # yaxis_title='💰 Valor Total (R$)',
@@ -277,7 +277,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
             x=1
         ),
         # Margens
-        margin=dict(l=50, r=50, t=100, b=80),  # Aumentado bottom para rótulos dos meses
+        margin={"l": 40, "r": 40, "t": 40, "b": 40},  # Aumentado bottom para rótulos dos meses
         # Cores de fundo
         # plot_bgcolor='rgba(240, 240, 240, 0.1)',
         # Configurar eixo X (meses)

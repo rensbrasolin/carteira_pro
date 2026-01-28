@@ -7,7 +7,7 @@ from icones import TITULO_APP, ICONE_APP, TITULO_INICIO, ICONE_INICIO, TITULO_AN
 st.set_page_config(layout="wide")
 
 # -------------------------------------------------------------------------------------------------------------------------
-st.title(f'{ICONE_APP} {TITULO_APP}', text_alignment='center')
+st.title(f'{ICONE_APP} {TITULO_APP}', text_alignment='left')
 st.markdown("---")
 
 # ------------------------------------------------------------------------------------------------------------------- Menu

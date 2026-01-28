@@ -12,8 +12,8 @@ def _criar_grafico_distrib_cm_tipo_df_posicao(df_posicao):
         df,
         path=['Tipo', 'Ticker'],  # Hierarquia: primeiro o Tipo, depois o Ativo
         values='Custo Médio',
-        color='Tipo',  # Cores por Tipo (você pode personalizar mais abaixo)
-        color_discrete_sequence=["#022b3a","#1f7a8c","#bfdbf7"]
+        color='Tipo',  # Cores por Tipo (você pode personalizar mais abaixo)  ["#022b3a","#1f7a8c","#bfdbf7"]
+        color_discrete_sequence=["#00798c","#30638e","#003d5b","#edae49","#d1495b"]
         # ["#e63946", "#ec9a9a", "#f1faee"]
     )
 
@@ -29,18 +29,18 @@ def _criar_grafico_distrib_cm_tipo_df_posicao(df_posicao):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family': 'Segoe UI',
-            'color': '#adb5bd',
-            'size': 12
-        }
+        # font={
+        #     'family': 'Segoe UI',
+        #     'color': '#adb5bd',
+        #     'size': 12
+        # }
     )
 
     # Exibir valores em formato brasileiro no hover
@@ -70,7 +70,7 @@ def _criar_grafico_distrib_pa_tipo_df_posicao(df_posicao):
         path=['Tipo', 'Ticker'],  # Hierarquia: primeiro o Tipo, depois o Ativo
         values='Patrimônio Atual',
         color='Tipo',  # Cores por Tipo (você pode personalizar mais abaixo)
-        color_discrete_sequence=["#022b3a","#1f7a8c","#bfdbf7"]
+        color_discrete_sequence=["#00798c","#30638e","#003d5b","#edae49","#d1495b"]
 
         # ["#457b9d", "#a8dadc", "#1d3557"]  # Mesmo esquema da pizza
     )
@@ -87,18 +87,18 @@ def _criar_grafico_distrib_pa_tipo_df_posicao(df_posicao):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
-        font={
-            'family':'Segoe UI',
-            'color':'#adb5bd',
-            'size':12
-    }
+    #     font={
+    #         'family':'Segoe UI',
+    #         'color':'#adb5bd',
+    #         'size':12
+    # }
     )
 
     # Exibir valores em formato brasileiro no hover
@@ -146,11 +146,11 @@ def _criar_grafico_rank_variacao_df_posicao(df_posicao):
     fig.update_layout(
         plot_bgcolor='#0a0908',  # Cor de fundo do gráfico
         paper_bgcolor='#0a0908',  # Cor de fundo do papel
-        font={
-            'family': 'Segoe UI',  # Fonte consistente
-            'size': 12,
-            'color': '#adb5bd'  # Cor do texto clara
-        },
+        # font={
+        #     'family': 'Segoe UI',  # Fonte consistente
+        #     'size': 12,
+        #     'color': '#adb5bd'  # Cor do texto clara
+        # },
         margin={'l': 60, 'r': 40, 't': 60, 'b': 40},  # Margens internas
 
         title={  # Título centralizado com estilo
@@ -159,11 +159,11 @@ def _criar_grafico_rank_variacao_df_posicao(df_posicao):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
         xaxis_title='',  # Eixos sem título
@@ -174,10 +174,10 @@ def _criar_grafico_rank_variacao_df_posicao(df_posicao):
             'showgrid': True,
             'gridcolor': 'rgba(200, 200, 200, 0.075)',  # Linhas discretas
             'gridwidth': 0.5,
-            "tickfont": {  # Cor dos rótulos no eixo X
-                "color": "#adb5bd",
-                "size": 10,
-            },
+            # "tickfont": {  # Cor dos rótulos no eixo X
+            #     "color": "#adb5bd",
+            #     "size": 10,
+            # },
         },
 
         xaxis={  # Estilo do eixo X (valores %)
@@ -185,10 +185,10 @@ def _criar_grafico_rank_variacao_df_posicao(df_posicao):
             'zerolinecolor': 'rgba(255, 255, 255, 0.15)',  # Linha no zero
             'showgrid': False,
             'tickformat': '.0%',
-            "tickfont": {  # Cor dos rótulos no eixo X
-                "color": "#adb5bd",
-                "size": 10,
-            },
+            # "tickfont": {  # Cor dos rótulos no eixo X
+            #     "color": "#adb5bd",
+            #     "size": 10,
+            # },
         }
     )
 
@@ -221,11 +221,11 @@ def _criar_grafico_rank_tir_df_posicao(df_posicao):
     fig.update_layout(
         plot_bgcolor='#0a0908',  # Cor de fundo do gráfico
         paper_bgcolor='#0a0908',  # Cor de fundo do papel
-        font={
-            'family': 'Segoe UI',  # Fonte consistente
-            'size': 12,
-            'color': '#adb5bd'  # Cor do texto clara
-        },
+        # font={
+        #     'family': 'Segoe UI',  # Fonte consistente
+        #     'size': 12,
+        #     'color': '#adb5bd'  # Cor do texto clara
+        # },
         margin={'l': 60, 'r': 40, 't': 60, 'b': 40},  # Margens internas
 
         title={  # Título centralizado com estilo
@@ -234,11 +234,11 @@ def _criar_grafico_rank_tir_df_posicao(df_posicao):
             'y': 0.95,
             'xanchor': 'center',
             'yanchor': 'top',
-            'font': {
-                'family': 'Segoe UI',
-                'size': 16,
-                'color': '#adb5bd'
-            }
+            # 'font': {
+            #     'family': 'Segoe UI',
+            #     'size': 16,
+            #     'color': '#adb5bd'
+            # }
         },
 
         xaxis_title='',  # Eixos sem título
@@ -249,10 +249,10 @@ def _criar_grafico_rank_tir_df_posicao(df_posicao):
             'showgrid': True,
             'gridcolor': 'rgba(200, 200, 200, 0.075)',  # Linhas discretas
             'gridwidth': 0.5,
-            "tickfont": {  # Cor dos rótulos no eixo X
-                "color": "#adb5bd",
-                "size": 10,
-            },
+            # "tickfont": {  # Cor dos rótulos no eixo X
+            #     "color": "#adb5bd",
+            #     "size": 10,
+            # },
         },
 
         xaxis={  # Estilo do eixo X (valores %)
@@ -260,10 +260,10 @@ def _criar_grafico_rank_tir_df_posicao(df_posicao):
             'zerolinecolor': 'rgba(255, 255, 255, 0.15)',  # Linha no zero
             'showgrid': False,
             'tickformat': '.0%',
-            "tickfont": {  # Cor dos rótulos no eixo X
-                "color": "#adb5bd",
-                "size": 10,
-            },
+            # "tickfont": {  # Cor dos rótulos no eixo X
+            #     "color": "#adb5bd",
+            #     "size": 10,
+            # },
         }
     )
 
