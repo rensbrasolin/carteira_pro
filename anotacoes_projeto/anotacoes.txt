@@ -1,18 +1,13 @@
 - remunerações:
-        - gráficos vg:
-            - Fazer um 2o gráfico de YonC da carteira, também com 3 indicadores.
-        - deploy
-        - rem_ações: 2 gráficso do projeto antigo nao foram feito em VG. Mas acho que serão bem vindos nas rem por ativo.
-            - Trazer infos de segmentos de ações e fiis para criar mais gráficos?
-        - rem_fiis
-            - Incorporar FIAgros e FIInfras aos FIIs em 3c.
+    - Talvez dar uma olhada geral, ou então jápartir para o proximo.
+    - rem_fiis
+        - Incorporar FIAgros e FIInfras aos FIIs em 3c.
 
-        - Mudar nome do df_posicao p/ df_posicao_vg nas fxs e em todos os lugares. c/ calma
-        - atualizar requeriments
-        - deploy
+    - atualizar requeriments
+    - deploy
 
 
-Antes de diponibilizar para o público, colocar disclaimers.
+Antes de disponibilizar para o público, colocar disclaimers.
     # Tipos de movimentação
     # Não considera taxas (ver no projeto antigo)
     # TRATAR ERRO SE CARREGAR ARQUIVO QUE NAO TEM ESTRUTURA DO EXTRATO.
@@ -27,6 +22,16 @@ DISCLAIMER:
     # A partir de 2019
     # Filtrar extrato na hora de baixar (Ações, FIIs, ETFs)
     # Extrato é D+2
+
+
+
+Futuro:
+- Provavelmente na seção Extrato, fazer gráfico de evolução do CM/PA ao longo dos meses.
+- Pôr imagem do ativo na col do df.
+- Gráfico painel cotação/pm
+- Botão no ticker do df para abrir análise inv10 ou qualquer outro
+- Trazer informações de fora: Segmento, P/VP, etc. Obrigatoriamente separado por tipo de ativo
+
 ----------------------------------------------------------------------------------------------------------------------
 # Imagem no df c/ st.dataframe:
 # Se tiver um df com as urls das imagens, usar st.data_editor transforma as urls em img e já exibe o df.
@@ -70,15 +75,6 @@ st.data_editor(
 | `dataframe_image` (`dfi`)              | ✅ Sim             | ✅ Alta        | ❌ Não       |
 
 ----------------------------------------------------------------------------------------------------------------------
-OUTROS:
-
-- Gráfico painel cotação/pm
-- Botão no ticker do df para abrir análise inv10 ou qualquer outro
-- Trazer informações de fora: Segmento, P/VP, etc. Obrigatoriamente separado por tipo de ativo
-
-
-
-----------------------------------------------------------------------------------------------------------------------
 PALETAS PLOTLY:
 
 sequencial, divergente e cíclica:
@@ -86,3 +82,14 @@ https://plotly.com/python/builtin-colorscales/
 
 categórica:
 https://plotly.com/python/discrete-color/#color-sequences-in-plotly-express
+
+
+----------------------------------------------------------------------------------------------------------------------
+# Colocar Indicador do mercado na pag inicial:
+    # - Selic
+    # - IPCA
+    # - Tesouro Selic/Pré/IPCA+
+    # - IFIX
+    # - IBOV
+    # - S&P 500
+    # - ?

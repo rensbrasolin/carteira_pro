@@ -24,6 +24,9 @@ from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcaa_fx_cria_df_rem_m
     criar_df_ext_pm_apos_compra, criar_df_ext_remuneracoes, criar_df_rem_mensais
 )
 from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcad_fx_render_aba3a_rem_mensais_vg import render_aba3a_remuneracoes_vg
+# 3b. Remunerações Ações
+from funcoes.b_analise_carteira.bc_remuneracoes.bcb_rem_acoes.bcba_fx_cria_df_rem_mensais_acoes import criar_df_rem_mensais_acoes
+from funcoes.b_analise_carteira.bc_remuneracoes.bcb_rem_acoes.bcbd_fx_render_aba3b_rem_mensais_acoes import render_aba3b_remuneracoes_acoes
 
 
 
@@ -149,5 +152,29 @@ if arquivos:
             df_rem_mensais = criar_df_rem_mensais(df_ext_remuneracoes=df_ext_remuneracoes)
 
             # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_fiis e gráficos
-            # Também entrega o df_ext_remuneracoes para poder criar o df_rem_mensais_yonc_carteira que será entregue a fx de grafico
-            render_aba3a_remuneracoes_vg(df_ext_remuneracoes=df_ext_remuneracoes, df_rem_mensais=df_rem_mensais)
+            # Também entrega o df_ext_remuneracoes e df_ext_pm_apos_compra p/ poder criar o df_rem_mensais_yonc_carteira que será entregue a fx de grafico
+            render_aba3a_remuneracoes_vg(df_ext_pm_apos_compra=df_ext_pm_apos_compra,
+                                         df_ext_remuneracoes=df_ext_remuneracoes,
+                                         df_rem_mensais=df_rem_mensais)
+
+
+        with aba3b_remuneracoes_acoes:
+            # ------------------------------------------------------------------------------------------------ 1. Criando df_rem_mensais_acoes
+            df_rem_mensais_acoes = criar_df_rem_mensais_acoes(df_rem_mensais=df_rem_mensais)
+
+
+            # ------------------------------------------------------------------------------------- Exibindo indicadores, df_posicao_fiis e gráficos
+            # Recebe o df_posicao_acoes para trazer cols categóricas
+            render_aba3b_remuneracoes_acoes(df_ext_pm_apos_compra=df_ext_pm_apos_compra, df_ext_remuneracoes=df_ext_remuneracoes, 
+                                            df_rem_mensais_acoes=df_rem_mensais_acoes, df_posicao_acoes=df_posicao_acoes)
+            
+
+
+
+
+
+        # # Teste:
+        # from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcac_fx_graficos_df_rem_mensais_vg import _desmembrar_df_rem_mensais
+        # # Obtendo o df que preciso
+        # _, _, df_rem_mensais_yonc = _desmembrar_df_rem_mensais(df_rem_mensais)
+        # st.dataframe(df_rem_mensais_yonc)

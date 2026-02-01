@@ -4,11 +4,11 @@ import pandas as pd
 
 # Diferente da seção 'Posicão', onde os dfs são inicados pelo df_ext_mov e
 # na sequência vão sendo incrementadas colunas no próprio df iniciado, aqui
-#  na seção de 'Remunerações' atyé se parte do df_ext_mov, mas é mais direto
+#  na seção de 'Remunerações' até se parte do df_ext_mov, mas é mais direto
 #  ao ponto. É um processo c/ 3 dfs: 
     # O df1 auxiliar (PMapósCompra) é criado, depois entregue para a próxima fx 
     # que já calcula o que precisa (YonC) no df2. Por fim, se cria o df final que tem
-    #  os mesmos dados do anterior, porém consolidados.
+    # os mesmos dados do anterior, porém consolidados.
 
 # Df1 (df_ext_pm_apos_compra) serve p/ emprestar sua col 'PM após Compra' para ser usada no df2 (df_ext_remuneracoes).
 # Df2 (df_ext_remuneracoes) pega a medida recebida do df1 e a usa para produzir a col 'YonC'. Ele já tem todas as
@@ -36,11 +36,11 @@ def criar_df_ext_pm_apos_compra(df_ext_mov):
     # Mantendo apenas cols necessárias
     df_ext_pm_apos_compra = df_ext_pm_apos_compra.drop(columns=['Instituição', 'Movimentação', 'Produto'])
 
-    # Ajuda a interpretar o df, mas não é crucial.
+    # Ordenando
     df_ext_pm_apos_compra = df_ext_pm_apos_compra.sort_values('Data')
 
     # (Atualizada a cada compra/venda)
-    df_ext_pm_apos_compra['Qtd Acumulada'] = df_ext_pm_apos_compra.groupby('Ticker')['Quantidade'].cumsum()
+    df_ext_pm_apos_compra['Qtd Acumulada (Ticker)'] = df_ext_pm_apos_compra.groupby('Ticker')['Quantidade'].cumsum()
 
     # ----------------------------------------------------------- Criando col custo médio, que é a mais elaborada desse df
     # Agrupa o DataFrame por 'Ativo' para calcular o custo médio separadamente para cada ativo
@@ -49,7 +49,7 @@ def criar_df_ext_pm_apos_compra(df_ext_mov):
         custo_medio_acumulado = 0  # Inicializa o custo médio acumulado
 
         for i, idx in enumerate(indices):
-            qtd_acumulada = df_ext_pm_apos_compra.loc[idx, 'Qtd Acumulada']
+            qtd_acumulada = df_ext_pm_apos_compra.loc[idx, 'Qtd Acumulada (Ticker)']
             entrada_saida = df_ext_pm_apos_compra.loc[idx, 'Entrada/Saída']
             valor_operacao = df_ext_pm_apos_compra.loc[idx, 'Valor da Operação']
 
@@ -66,16 +66,16 @@ def criar_df_ext_pm_apos_compra(df_ext_mov):
 
             elif entrada_saida == 'Debito':
                 # Se for uma venda, reduz o custo médio proporcionalmente à quantidade vendida.
-                # Não reduz o "Preço a venda*qtd vendida" mas sim "PM*qtd vendida"
+                # Não reduz o "Preço da venda*qtd vendida" mas sim "PM*qtd vendida"
                 qtd_movimentada = abs(df_ext_pm_apos_compra.loc[idx, 'Quantidade']) # Garante que a quantidade seja positiva para o cálculo
                 custo_medio_acumulado -= (custo_medio_acumulado / (qtd_acumulada + qtd_movimentada)) * qtd_movimentada
 
             # Atualiza o DataFrame com o custo médio calculado para a linha atual
-            df_ext_pm_apos_compra.loc[idx, 'Custo Médio Acumulado'] = custo_medio_acumulado
+            df_ext_pm_apos_compra.loc[idx, 'CM Acumulado (Ticker)'] = custo_medio_acumulado
 
     # ----------------------------------------------------------- Fim da col custo médio
     # Criando col 'PM após compra'
-    df_ext_pm_apos_compra['PM Após Compra'] = df_ext_pm_apos_compra['Custo Médio Acumulado'] / df_ext_pm_apos_compra['Qtd Acumulada']
+    df_ext_pm_apos_compra['PM Após Compra'] = df_ext_pm_apos_compra['CM Acumulado (Ticker)'] / df_ext_pm_apos_compra['Qtd Acumulada (Ticker)']
 
     return df_ext_pm_apos_compra
 
@@ -136,12 +136,12 @@ def criar_df_ext_remuneracoes(df_ext_mov, df_ext_pm_apos_compra):
 
             # Filtra os registros do df_pm_apos_compra que possuem a mesma quantidade acumulada
             # e cuja data seja anterior à data do evento em df_remuneracoes
-            df_filtrado = df_pm[(df_pm['Qtd Acumulada'] == quantidade) & (df_pm['Data'] < data_remuneracao)]
+            df_filtrado = df_pm[(df_pm['Qtd Acumulada (Ticker)'] == quantidade) & (df_pm['Data'] < data_remuneracao)]
 
             if not df_filtrado.empty:
                 # Pega o último registro antes da data da remuneração
                 preco_medio_correspondente = df_filtrado.iloc[-1]['PM Após Compra']
-                custo_medio_acumulado = df_filtrado.iloc[-1]['Custo Médio Acumulado']
+                custo_medio_acumulado = df_filtrado.iloc[-1]['CM Acumulado (Ticker)']
             else:
                 # Caso não encontre, pode deixar NaN ou outro valor padrão
                 preco_medio_correspondente = None

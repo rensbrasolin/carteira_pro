@@ -39,7 +39,6 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
     for i, ticker in enumerate(tickers_unicos):        # Filtrar dados apenas para este Ticker
         df_ticker = df_plot[df_plot['Ticker'] == ticker]
 
-
         # 🔥 Regra para iniciar com o 1o ticker visível, outros ocultos.
         visible = True if i == 0 else 'legendonly'
 
@@ -88,7 +87,7 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
             x=0.99                                              # Posição horizontal
         ),
         # Configurar margens
-        margin={"l": 40, "r": 40, "t": 40, "b": 40},            # Margens: left, right, top, bottom
+        margin={"l": 40, "r": 40, "t": 70, "b": 40},            # Margens: left, right, top, bottom
         # Configurar grid
         # plot_bgcolor='rgba(240, 240, 240, 0.8)',               # Cor de fundo do gráfico
         # Configurar eixo X (datas)
@@ -253,7 +252,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
         paper_bgcolor='#0a0908',    # Fundo geral
 
         title={
-            'text': 'Compras vs Vendas (Últimos 12 Meses)',
+            'text': 'Compras vs Vendas (últ. 12 Meses)',
             'x': 0.5,
             'y': 0.95,
             'xanchor': 'center',
@@ -277,7 +276,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
             x=1
         ),
         # Margens
-        margin={"l": 40, "r": 40, "t": 40, "b": 40},  # Aumentado bottom para rótulos dos meses
+        margin={"l": 40, "r": 40, "t": 70, "b": 40},  # Aumentado bottom para rótulos dos meses
         # Cores de fundo
         # plot_bgcolor='rgba(240, 240, 240, 0.1)',
         # Configurar eixo X (meses)
