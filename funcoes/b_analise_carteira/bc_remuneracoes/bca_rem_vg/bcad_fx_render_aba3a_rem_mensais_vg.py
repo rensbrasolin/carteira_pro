@@ -35,24 +35,24 @@ def render_aba3a_remuneracoes_vg(df_ext_pm_apos_compra, df_ext_remuneracoes, df_
         with st.container(border=True):
             col1, col2, col3 = st.columns([1, 1, 1])
             with col1:
-                media_mensal_rem_mensais_yonc_carteira = _calc_media_mensal_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
-                media_mensal_rem_mensais_yonc_carteira_fmt = g_formatar_valor_grande_indicadores(media_mensal_rem_mensais_yonc_carteira)
-                st.metric('Média Mensal da Carteira (últ. 12 meses)', f'{media_mensal_rem_mensais_yonc_carteira_fmt}',
-                          border=True, help=f'R$ {media_mensal_rem_mensais_yonc_carteira:,.2f}')
+                media_mensal_ult_12_meses_df_rem_mensais_total = _calc_media_mensal_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
+                media_mensal_ult_12_meses_df_rem_mensais_total_fmt = g_formatar_valor_grande_indicadores(media_mensal_ult_12_meses_df_rem_mensais_total)
+                st.metric('Média Mensal da Carteira (últ. 12 meses)', f'{media_mensal_ult_12_meses_df_rem_mensais_total_fmt}',
+                          border=True, help=f'R$ {media_mensal_ult_12_meses_df_rem_mensais_total:,.2f}')
 
             with col2:
-                media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira = _calc_soma_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
-                media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_fmt = g_formatar_valor_grande_indicadores(
-                    media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira)
-                st.metric('Total da Carteira (últ. 12 meses)', f'{media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_fmt}',
-                         border=True, help=f'R$ {media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira:,.2f}')
+                soma_ult_12_meses_df_rem_mensais_total = _calc_soma_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
+                soma_ult_12_meses_df_rem_mensais_total_fmt = g_formatar_valor_grande_indicadores(
+                    soma_ult_12_meses_df_rem_mensais_total)
+                st.metric('Total da Carteira (últ. 12 meses)', f'{soma_ult_12_meses_df_rem_mensais_total_fmt}',
+                         border=True, help=f'R$ {soma_ult_12_meses_df_rem_mensais_total:,.2f}')
 
             with col3:
-                soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira = _calc_soma_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
-                soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_fmt = g_formatar_valor_grande_indicadores(
-                    soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira)
-                st.metric('Total da Carteira', f'{soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_fmt}',
-                         border=True, help=f'R$ {soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira:,.2f}')
+                soma_df_rem_mensais_total = _calc_soma_df_rem_mensais_total(df_rem_mensais=df_rem_mensais)
+                soma_df_rem_mensais_total_fmt = g_formatar_valor_grande_indicadores(
+                    soma_df_rem_mensais_total)
+                st.metric('Total da Carteira', f'{soma_df_rem_mensais_total_fmt}',
+                         border=True, help=f'R$ {soma_df_rem_mensais_total:,.2f}')
 
             grafico_rem_mensais_total_por_tipo = _criar_grafico_rem_mensais_total_por_tipo(df_rem_mensais)
             st.plotly_chart(grafico_rem_mensais_total_por_tipo, use_container_width=True)
@@ -69,10 +69,10 @@ def render_aba3a_remuneracoes_vg(df_ext_pm_apos_compra, df_ext_remuneracoes, df_
 
             col1, col2, col3 = st.columns([1, 1, 1])
             with col1:
-                media_mensal_rem_mensais_yonc_carteira = _calc_media_mensal_df_rem_mensais_yonc_carteira(
+                media_mensal_df_rem_mensais_yonc_carteira = _calc_media_mensal_df_rem_mensais_yonc_carteira(
                     df_rem_mensais_yonc_carteira=df_rem_mensais_yonc_carteira)
                 st.metric('Média Mensal da Carteira (Total)',
-                          f'R$ {media_mensal_rem_mensais_yonc_carteira:,.2f}%',
+                          f'R$ {media_mensal_df_rem_mensais_yonc_carteira:,.2f}%',
                             border=True)
 
             with col2:

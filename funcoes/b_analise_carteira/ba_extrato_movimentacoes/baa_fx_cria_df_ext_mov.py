@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from icones import TITULO_CARREGAMENTO_EXTRATO, ICONE_CARREGAMENTO_EXTRATO
+# from icones import *
 from funcoes._global.fxg_tratamento import g_aplicar_datetime_cols, g_aplicar_to_numeric_cols
 
 
@@ -10,8 +10,10 @@ def carregar_arquivos():
     """
     Recebe 1 ou mais arquivos e armazena na variável 'arquivos'.
     """
-    with st.expander(f'{ICONE_CARREGAMENTO_EXTRATO} {TITULO_CARREGAMENTO_EXTRATO}', expanded=False):
-        with st.container(border=True):
+    # with st.expander(f'{ICONE_CARREGAMENTO_EXTRATO} {TITULO_CARREGAMENTO_EXTRATO}', expanded=False):
+    # 'Carregue aqui seu Extrato B3' '📂'
+
+    with st.container(border=True):
             arquivos = st.file_uploader("Formato esperado: Excel     (.xlsx ou .xls)",
                                         type=["xlsx", "xls"], accept_multiple_files=True)
     return arquivos

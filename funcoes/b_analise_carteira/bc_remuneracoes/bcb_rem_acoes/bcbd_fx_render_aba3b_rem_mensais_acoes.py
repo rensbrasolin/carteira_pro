@@ -18,7 +18,7 @@ from funcoes.b_analise_carteira.bc_remuneracoes.bca_rem_vg.bcac_fx_graficos_df_r
     # Gráfico 4
     _criar_grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses
 )
-from funcoes.b_analise_carteira.bc_remuneracoes.bcb_rem_acoes.bcbc_fx_graficos_rem_mensais_acoes import (
+from funcoes.b_analise_carteira.bc_remuneracoes.bcb_rem_acoes.bcbc_fx_graficos_df_rem_mensais_acoes import (
     # Gráfico 1
     _criar_grafico_rem_mensais_total_acoes_por_setor,
 )
@@ -41,24 +41,24 @@ def render_aba3b_remuneracoes_acoes(df_ext_pm_apos_compra, df_ext_remuneracoes, 
             # Reaproveitando fxs dos indicadores do VG
             col1, col2, col3 = st.columns([1, 1, 1])
             with col1:
-                media_mensal_rem_mensais_yonc_carteira_acoes = _calc_media_mensal_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
-                media_mensal_rem_mensais_yonc_carteira_acoes_fmt = g_formatar_valor_grande_indicadores(media_mensal_rem_mensais_yonc_carteira_acoes)
-                st.metric('Média Mensal da Carteira (últ. 12 meses)', f'{media_mensal_rem_mensais_yonc_carteira_acoes_fmt}',
-                          border=True, help=f'R$ {media_mensal_rem_mensais_yonc_carteira_acoes:,.2f}')
+                media_mensal_ult_12_meses_df_rem_mensais_total_acoes = _calc_media_mensal_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
+                media_mensal_ult_12_meses_df_rem_mensais_total_acoes_fmt = g_formatar_valor_grande_indicadores(media_mensal_ult_12_meses_df_rem_mensais_total_acoes)
+                st.metric('Média Mensal da Carteira (últ. 12 meses)', f'{media_mensal_ult_12_meses_df_rem_mensais_total_acoes_fmt}',
+                          border=True, help=f'R$ {media_mensal_ult_12_meses_df_rem_mensais_total_acoes:,.2f}')
 
             with col2:
-                media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes = _calc_soma_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
-                media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes_fmt = g_formatar_valor_grande_indicadores(
-                    media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes)
-                st.metric('Total da Carteira (últ. 12 meses)', f'{media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes_fmt}',
-                         border=True, help=f'R$ {media_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes:,.2f}')
+                soma_ult_12_meses_df_rem_mensais_total_acoes = _calc_soma_ult_12_meses_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
+                soma_ult_12_meses_df_rem_mensais_total_acoes_fmt = g_formatar_valor_grande_indicadores(
+                    soma_ult_12_meses_df_rem_mensais_total_acoes)
+                st.metric('Total da Carteira (últ. 12 meses)', f'{soma_ult_12_meses_df_rem_mensais_total_acoes_fmt}',
+                         border=True, help=f'R$ {soma_ult_12_meses_df_rem_mensais_total_acoes:,.2f}')
 
             with col3:
-                soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes = _calc_soma_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
-                soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes_fmt = g_formatar_valor_grande_indicadores(
-                    soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes)
-                st.metric('Total da Carteira', f'{soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes_fmt}',
-                         border=True, help=f'R$ {soma_mensal_ult_12_meses_df_rem_mensais_yonc_carteira_acoes:,.2f}')
+                soma_df_rem_mensais_total_acoes = _calc_soma_df_rem_mensais_total(df_rem_mensais=df_rem_mensais_acoes)
+                soma_df_rem_mensais_total_acoes_fmt = g_formatar_valor_grande_indicadores(
+                    soma_df_rem_mensais_total_acoes)
+                st.metric('Total da Carteira', f'{soma_df_rem_mensais_total_acoes_fmt}',
+                         border=True, help=f'R$ {soma_df_rem_mensais_total_acoes:,.2f}')
 
             grafico_rem_mensais_total_acoes_por_setor = _criar_grafico_rem_mensais_total_acoes_por_setor(
                   df_rem_mensais_acoes=df_rem_mensais_acoes, df_posicao_acoes=df_posicao_acoes)
@@ -79,10 +79,10 @@ def render_aba3b_remuneracoes_acoes(df_ext_pm_apos_compra, df_ext_remuneracoes, 
             
             col1, col2, col3 = st.columns([1, 1, 1])
             with col1:
-                media_mensal_rem_mensais_yonc_carteira_acoes = _calc_media_mensal_df_rem_mensais_yonc_carteira(
+                media_mensal_df_rem_mensais_yonc_carteira_acoes = _calc_media_mensal_df_rem_mensais_yonc_carteira(
                     df_rem_mensais_yonc_carteira=df_rem_mensais_yonc_carteira_acoes)
                 st.metric('Média Mensal (Total)',
-                          f'R$ {media_mensal_rem_mensais_yonc_carteira_acoes:,.2f}%',
+                          f'R$ {media_mensal_df_rem_mensais_yonc_carteira_acoes:,.2f}%',
                             border=True)
 
             with col2:
@@ -104,10 +104,10 @@ def render_aba3b_remuneracoes_acoes(df_ext_pm_apos_compra, df_ext_remuneracoes, 
 
         # ------------------------------------------------------------------------------------------------------------- Gráfico 3
         with st.container(border=True):
-            grafico_rem_mensais_yonc_por_ticker = _criar_grafico_rem_mensais_yonc_por_ticker(df_rem_mensais=df_rem_mensais_acoes)
-            st.plotly_chart(grafico_rem_mensais_yonc_por_ticker, use_container_width=True)
+            grafico_rem_mensais_yonc_por_ticker_acoes = _criar_grafico_rem_mensais_yonc_por_ticker(df_rem_mensais=df_rem_mensais_acoes)
+            st.plotly_chart(grafico_rem_mensais_yonc_por_ticker_acoes, use_container_width=True)
 
-        # ------------------------------------------------------------------------------------------------------------- Gráfico 3
+        # ------------------------------------------------------------------------------------------------------------- Gráfico 4
         with st.container(border=True):
-            grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses = _criar_grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses(df_rem_mensais=df_rem_mensais_acoes)
-            st.plotly_chart(grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses, use_container_width=True)
+            grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses_acoes = _criar_grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses(df_rem_mensais=df_rem_mensais_acoes)
+            st.plotly_chart(grafico_rem_mensais_yonc_por_ticker_soma_ult_12_meses_acoes, use_container_width=True)

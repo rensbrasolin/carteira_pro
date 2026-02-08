@@ -4,13 +4,14 @@
 
 
 # --------------------------------------------------------------------------------------------------------------------------------  Definindo fxs internas
-def _iniciar_df_rem_mensais_acoes(df_rem_mensais):
+def _iniciar_df_rem_mensais_fiis(df_rem_mensais):
     
-    df_rem_mensais_acoes = df_rem_mensais.copy()
+    df_rem_mensais_fiis = df_rem_mensais.copy()
 
-    # Mantendo apenas linhas de ações.
-    df_rem_mensais_acoes = df_rem_mensais_acoes.loc[
-    df_rem_mensais_acoes[('', 'Tipo')] == 'Ação']
+    # Mantendo apenas linhas de Fiis/Fiagros/Fiinfras.
+    df_rem_mensais_fiis = df_rem_mensais_fiis.loc[
+    df_rem_mensais_fiis[('', 'Tipo')].isin(['FII', 'FIAgro', 'FIInfra'])
+    ]
 
     # Apesar de fazer sentido, não excluir a col 'Tipo' aqui,
     # pois qdo o df_rem_(tipo) for entregue a fx _desmembrar_df_rem_mensais
@@ -18,7 +19,7 @@ def _iniciar_df_rem_mensais_acoes(df_rem_mensais):
     # Será excluída só na fx que exibe o df.
     
 
-    return df_rem_mensais_acoes
+    return df_rem_mensais_fiis
 
 
 
@@ -37,14 +38,14 @@ def _iniciar_df_rem_mensais_acoes(df_rem_mensais):
 
 
 
-# --------------------------------------------------------------------------------------------------------------------- FX principal que cria o df_rem_mensais_acoes
-def criar_df_rem_mensais_acoes(df_rem_mensais):
+# --------------------------------------------------------------------------------------------------------------------- FX principal que cria o df_rem_mensais_fiis
+def criar_df_rem_mensais_fiis(df_rem_mensais):
 
-    df_rem_mensais_acoes = _iniciar_df_rem_mensais_acoes(df_rem_mensais=df_rem_mensais)
-
-
+    df_rem_mensais_fiis = _iniciar_df_rem_mensais_fiis(df_rem_mensais=df_rem_mensais)
 
 
 
 
-    return df_rem_mensais_acoes
+
+
+    return df_rem_mensais_fiis

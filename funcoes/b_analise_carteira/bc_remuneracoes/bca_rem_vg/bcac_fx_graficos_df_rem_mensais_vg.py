@@ -97,8 +97,16 @@ def _desmembrar_df_rem_mensais(df_rem_mensais): # Talvez fazer com 'for' depois
 # Será criado no arq render...
 # NO CONTEXTO DA CARTEIRA, NÃO É POSSÍVEL DAR MATCH PELA QTDE COMO FEITO NO CONTEXTO SEPARADO POR TICKER, PELO FATO DE QUE
 # SE ANALISARMOS O DF_REM VEREMOS QUE ACUMULAR SUAS QTDES SEM SEPARAR POR TICKER, NÃO FAZ SENTIDO POIS ELA NÃO ACOMPANHA NO
-# MESMO PASSO DO DF DE COMPRAS/VNDAS. OU SEJA, ACUMULAR A COL 'QTD' DO DF_REM COMO UM TODU NÃO REFLETE AS VERDADEIRAS QTDES
+# MESMO PASSO DO DF DE COMPRAS/VENDAS. OU SEJA, ACUMULAR A COL 'QTD' DO DF_REM COMO UM TODU NÃO REFLETE AS VERDADEIRAS QTDES
 # QUE A CARTEIRA VAI TENDO CONFORME COMPRAS/VENDAS. ENTÃO, O MATCH SERÁ DADO PELA DATA APROXIMADA (merge_asof).
+
+# Analogia útil para entender o motivo de comparar DY com CM que não pagou DY:
+# Imagine que você tem 10 imóveis para alugar:
+# 8 estão alugados (pagando)
+# 2 estão vazios (em reforma)
+# Qual seu yield?
+# ✅ Realista: Aluguel total ÷ Valor de TODOS os imóveis
+# ❌ Otimista demais: Aluguel total ÷ Valor apenas dos 8 alugados
 def _criar_df_rem_mensais_yonc_carteira(df_ext_pm_apos_compra, df_ext_remuneracoes):
 
     # ----------------------------------------------------- A df_ext_cm_acumulado_carteira
@@ -109,7 +117,7 @@ def _criar_df_rem_mensais_yonc_carteira(df_ext_pm_apos_compra, df_ext_remuneraco
     # PM*QtdVendida. Então, para se chegar no 'CM Acumulado (Carteira)' basta ordenar o
     # df por data (semseparar por ticker) e somar a col 'CM Acumulado (Ticker)'. Não 
     # consegui entender como a lógica da venda funciona aqui nesse df de forma perfeita,
-    # mas funciona. Deve ter a ver com algo que foi no df anterior na col 'CM Acumulado (Ticker)'.
+    # mas funciona. Deve ter a ver com algo feito no df anterior na col 'CM Acumulado (Ticker)'.
 
     df_ext_cm_acumulado_carteira = df_ext_pm_apos_compra.copy()
 

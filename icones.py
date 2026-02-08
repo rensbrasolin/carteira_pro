@@ -3,26 +3,25 @@ Centralização de emojis/ícones para o app CarteiraPro.
 Mantenha consistência visual em toda a aplicação.
 """
 
-# ============================================================================ 📶 ℹ️ 🧮 🌐 📈
+# ============================================================================ 📶 ℹ️ 🧮 🌐 📈 🏦 💎 ⭐
 # APP
 # ============================================================================ 💼
 TITULO_APP = 'CarteiraPro'
-ICONE_APP = '🏦'
+ICONE_APP = '💎'
 
+TITULO_INFO = 'Info'
+ICONE_INFO = 'ℹ️'
 # ============================================================================
 # MENU
 # ============================================================================
 # ----------------------------------------------------------------------------------------------------------- INÍCIO 🏠
 TITULO_INICIO = 'Início'
-ICONE_INICIO = '🚪'
+ICONE_INICIO = '▶️'
 
 # ----------------------------------------------------------------------------------------------------------- ANÁLISE DA CARTEIRA
 # _______________________________________________ Cabeçario
 TITULO_ANALISE_CARTEIRA = 'Análise da Carteira'
 ICONE_ANALISE_CARTEIRA = '📈'
-# Carregamento do extrato
-TITULO_CARREGAMENTO_EXTRATO = 'Carregue aqui seu extrato de movimentações da B3'
-ICONE_CARREGAMENTO_EXTRATO = '📂'
 
 # _______________________________________________ Abas principais
 # 1. Extrato
@@ -46,11 +45,11 @@ TITULO_FIIS = 'FIIs'
 ICONE_FIIS = '🏢'
 
 TITULO_ETFS = 'ETFs'
-ICONE_ETFS = '🌐'
+ICONE_ETFS = '🧺'
 
 # _______________________________________________ Expanders das abas e sub-abas
 TITULO_FILTROS = '**[Filtros]** ... '
-ICONE_FILTROS = '⚡'
+ICONE_FILTROS = '🔎'
 
 TITULO_INDICADORES = '**[Indicadores]** ... '
 ICONE_INDICADORES = '🌡️'

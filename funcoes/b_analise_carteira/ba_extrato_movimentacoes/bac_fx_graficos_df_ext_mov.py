@@ -51,8 +51,8 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
                 name=ticker,                   # Nome da linha (aparece na legenda)
                 visible=visible,               # 🔥 Esta é a chave!
                 # Configurações visuais da linha
-                line=dict(width=2),            # Espessura da linha
-                marker=dict(size=5),           # Tamanho dos marcadores
+                line=dict(width=1),            # Espessura da linha
+                marker=dict(size=2),           # Tamanho dos marcadores
                 # 🔥 E ADICIONE ESTE PARÂMETRO:
                 customdata=df_ticker[['Quantidade', 'Valor da Operação']].values
             )
@@ -92,14 +92,14 @@ def criar_grafico_preco_compras_df_ext_mov(df_ext_mov):
         # plot_bgcolor='rgba(240, 240, 240, 0.8)',               # Cor de fundo do gráfico
         # Configurar eixo X (datas)
         xaxis=dict(
-            showgrid=True,                                      # Mostrar grid vertical
-            gridcolor='rgba(200, 200, 200, 0.5)',              # Cor do grid
+            showgrid=False,                                      # Mostrar grid vertical
+            # gridcolor='rgba(200, 200, 200, 0.5)',              # Cor do grid
             tickformat='%d/%m/%Y'                               # Formato brasileiro das datas
         ),
         # Configurar eixo Y (preços)
         yaxis=dict(
             showgrid=True,                                      # Mostrar grid horizontal
-            gridcolor='rgba(200, 200, 200, 0.5)',              # Cor do grid
+            # gridcolor='rgba(200, 200, 200, 0.5)',              # Cor do grid
             tickprefix='R$ ',                                   # Prefixo real nos valores
             tickformat=',.2f'                                   # Formato com 2 casas decimais
         )
@@ -281,8 +281,8 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
         # plot_bgcolor='rgba(240, 240, 240, 0.1)',
         # Configurar eixo X (meses)
         xaxis=dict(
-            showgrid=True,
-            gridcolor='rgba(200, 200, 200, 0.3)',
+            showgrid=False,
+            # gridcolor='rgba(200, 200, 200, 0.3)',
             # Rotacionar rótulos para melhor legibilidade
             tickangle=-45,
             # Evitar que rótulos sejam cortados
@@ -291,7 +291,7 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
         # Configurar eixo Y (valores)
         yaxis=dict(
             showgrid=True,
-            gridcolor='rgba(200, 200, 200, 0.3)',
+            # gridcolor='rgba(200, 200, 200, 0.3)',
             tickprefix='R$ ',
             tickformat=',.2f'
         ),
@@ -322,13 +322,5 @@ def criar_grafico_compras_vendas_12m_df_ext_mov(df_ext_mov):
     #     align='center',
     #     bgcolor='rgba(255, 255, 255, 0.8)'
     # )
-
-    # Adicionar linha de referência no zero
-    fig.add_hline(
-        y=0,
-        line_width=1,
-        line_dash="dash",
-        line_color="gray"
-    )
 
     return fig
